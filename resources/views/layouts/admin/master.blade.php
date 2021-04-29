@@ -14,7 +14,6 @@
       </li>
     </ul>
 
-    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -28,11 +27,11 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
             <img src="{{ asset('assets/dist/img/avatar.png') }}" class="rounded-circle account"> {{ Auth::user()->nama }}
-          
+
         </a>
-        
+
         <div class="dropdown-menu dropdown-menu-right logout">
-          
+
           <a href="#" class="dropdown-item dropdown-footer" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
           <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none">
           @csrf
@@ -92,6 +91,15 @@
 <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
+
+
+
+
+
+<!-- Livewire script -->
+@livewireScripts
 @yield('footer-script')
+@include('sweetalert::alert')
+@include('layouts.admin.alert')
 </body>
 </html>
