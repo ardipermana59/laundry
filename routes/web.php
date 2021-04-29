@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use RealRashid\SweetAlert\Facades\Alert;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/alert', function(){
+  Alert::alert('Title', 'Message', 'Type');
+  return view('welcome');
+});
 Route::view('/', 'main.dashboard')->middleware('auth');
 
 // OUTLET
