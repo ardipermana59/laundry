@@ -24,8 +24,8 @@ class Trash extends Component
 
     public function forceDelete($id)
     {
-      $outlet = Member::withTrashed()->where('id', $id);
-      $outlet->forceDelete();
+      $member = Member::withTrashed()->where('id', $id);
+      $member->forceDelete();
       return $this->dispatchBrowserEvent('success',['text' => 'Member berhasil dihapus']);
     }
 
@@ -36,8 +36,8 @@ class Trash extends Component
       if ($members->first->id == null) {
           return $this->dispatchBrowserEvent('info',['text' => 'Tidak ada data dalam sampah.']);
       }
-      foreach ($members as $outlet) {
-          $outlet->where('id', $outlet->id)->forceDelete();
+      foreach ($members as $member) {
+          $member->where('id', $member->id)->forceDelete();
       }
       return $this->dispatchBrowserEvent('success',['text' => 'Seluruh sampah berhasil dibersihkan.']);
     }
