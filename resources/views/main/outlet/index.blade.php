@@ -7,10 +7,6 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
 @endsection
 
-@php
-  $no = $outlets->firstItem()
-@endphp
-
 @section('content')
   <section class="content">
     <div class="clearfix mb-2">

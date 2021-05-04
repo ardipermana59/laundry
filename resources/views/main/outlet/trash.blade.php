@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
 @endsection
 
-
-
 @section('content')
   <section class="content">
     <div class="mb-3">

@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Livewire\Outlet;
+namespace App\Http\Livewire\Member;
 
 use Livewire\WithPagination;
 use Livewire\Component;
-use App\Models\Outlet;
+use App\Models\Member;
 
 class Trash extends Component
 {
     use WithPagination;
-
     protected $listeners = [
       'destroy' => 'forceDelete',
       'restore' => 'restoreOutlet',
@@ -18,26 +17,26 @@ class Trash extends Component
 
     public function render()
     {
-        return view('livewire.outlet.trash',[
-          'outlets' => Outlet::onlyTrashed()->paginate(10)
+        return view('livewire.member.trash',[
+          'members' => Member::onlyTrashed()->paginate(10)
         ]);
     }
 
     public function forceDelete($id)
     {
-      $outlet = Outlet::withTrashed()->where('id', $id);
+      $outlet = Member::withTrashed()->where('id', $id);
       $outlet->forceDelete();
-      return $this->dispatchBrowserEvent('success',['text' => 'Outlet berhasil dihapus']);
+      return $this->dispatchBrowserEvent('success',['text' => 'Member berhasil dihapus']);
     }
 
     public function forceDeleteAll()
     {
-      $outlets = Outlet::onlyTrashed()->get();
-      // dd($outlets->first->id);
-      if ($outlets->first->id == null) {
+      $members = Member::onlyTrashed()->get();
+      // dd($members->first->id);
+      if ($members->first->id == null) {
           return $this->dispatchBrowserEvent('info',['text' => 'Tidak ada data dalam sampah.']);
       }
-      foreach ($outlets as $outlet) {
+      foreach ($members as $outlet) {
           $outlet->where('id', $outlet->id)->forceDelete();
       }
       return $this->dispatchBrowserEvent('success',['text' => 'Seluruh sampah berhasil dibersihkan.']);
@@ -45,8 +44,8 @@ class Trash extends Component
 
     public function restoreOutlet($id)
     {
-      Outlet::withTrashed()->where('id', $id)->restore();
-      return $this->dispatchBrowserEvent('success',['text' => 'Outlet berhasil dipulihkan']);
+      Member::withTrashed()->where('id', $id)->restore();
+      return $this->dispatchBrowserEvent('success',['text' => 'Member berhasil dipulihkan']);
     }
 
     public function confirmationForceDelete($id)
