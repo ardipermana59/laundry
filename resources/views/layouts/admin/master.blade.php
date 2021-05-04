@@ -92,14 +92,10 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
 
-
-
-
-
 <!-- Livewire script -->
 @livewireScripts
-@yield('footer-script')
 @include('sweetalert::alert')
+@yield('footer-script')
 @include('layouts.admin.alert')
 </body>
 </html>

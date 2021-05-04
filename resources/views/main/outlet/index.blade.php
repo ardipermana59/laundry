@@ -21,7 +21,3 @@
     <livewire:outlet.index></livewire:outlet.index>
   </section>
 @endsection
-
-@section('footer-script')
-<script src="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-@endsection

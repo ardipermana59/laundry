@@ -23,14 +23,16 @@ class Index extends Component
     public function destroy($id)
     {
       Outlet::destroy($id);
-      $this->dispatchBrowserEvent('success',['text' => 'Outlet berhasil dihapus']);
+      return $this->dispatchBrowserEvent('success',['text' => 'Outlet berhasil dihapus']);
     }
 
     public function confirmation($id)
     {
-      $this->dispatchBrowserEvent('confirmation',[
+      return $this->dispatchBrowserEvent('confirmation',[
         'id' => $id,
+        'btnConfirm' => 'Ya, hapus data !',
         'text' => 'Apa anda yakin ingin hapus data outlet?',
       ]);
     }
+
 }
