@@ -11,7 +11,7 @@ class Trash extends Component
     use WithPagination;
     protected $listeners = [
       'destroy' => 'forceDelete',
-      'restore' => 'restoreOutlet',
+      'restore' => 'restoreMember',
       'destroyAll' => 'forceDeleteAll'
     ];
 
@@ -42,7 +42,7 @@ class Trash extends Component
       return $this->dispatchBrowserEvent('success',['text' => 'Seluruh sampah berhasil dibersihkan.']);
     }
 
-    public function restoreOutlet($id)
+    public function restoreMember($id)
     {
       Member::withTrashed()->where('id', $id)->restore();
       return $this->dispatchBrowserEvent('success',['text' => 'Member berhasil dipulihkan']);

@@ -12,7 +12,7 @@ class Trash extends Component
 
   protected $listeners = [
     'destroy' => 'forceDelete',
-    'restore' => 'restoreOutlet',
+    'restore' => 'restorePacket',
     'destroyAll' => 'forceDeleteAll'
   ];
 
@@ -42,7 +42,7 @@ class Trash extends Component
     return $this->dispatchBrowserEvent('success',['text' => 'Seluruh sampah berhasil dibersihkan.']);
   }
 
-  public function restoreOutlet($id)
+  public function restorePacket($id)
   {
     Packet::withTrashed()->where('id', $id)->restore();
     return $this->dispatchBrowserEvent('success',['text' => 'Paket berhasil dipulihkan']);
