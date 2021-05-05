@@ -1,4 +1,13 @@
-<div class="card">
+<div class="">
+  <div class="clearfix mb-2">
+  <div class="float-right">
+    @include('livewire.outlet.modal-create')
+    @include('livewire.outlet.modal-update')
+    <a href="{{ route('outlet.trash') }}" class="btn btn-info"><i class="fas fa-trash"></i>&nbsp&nbspSampah</a>
+  </div>
+</div>
+  <div class="card">
+
   <div class="card-header">
 
     <h3 class="card-title">Daftar Outlet</h3>
@@ -34,7 +43,7 @@
                 <td>{{ $outlet->address }}</td>
                 <td>{{ $outlet->tlp }}</td>
                 <td class="text-center">
-                  <a href="{{ route('outlet.edit', ['outlet' => $outlet->id ]) }}" class="btn btn-warning">Edit</a>
+                  <button wire:click="edit({{ $outlet->id }})" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalUpdate">Edit</button>
                   <button wire:click="confirmation({{ $outlet->id }})" type="button" class="btn btn-danger btn-outlet">Hapus</button>
 
                 </td>
@@ -52,5 +61,7 @@
       </table>
       {{ $outlets->links()}}
   </div>
+
+</div>
 
 </div>

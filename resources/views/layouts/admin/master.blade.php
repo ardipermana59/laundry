@@ -97,5 +97,13 @@
 @include('sweetalert::alert')
 @yield('footer-script')
 @include('layouts.admin.alert')
+<script type="text/javascript">
+      window.livewire.on('stored', () => {
+          $('#modalCreate').modal('hide');
+      });
+      window.livewire.on('updated', () => {
+          $('#modalUpdate').modal('hide');
+      });
+</script>
 </body>
 </html>
