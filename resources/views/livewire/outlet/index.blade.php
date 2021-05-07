@@ -1,27 +1,26 @@
 <div class="">
   <div class="clearfix mb-2">
-  <div class="float-right">
-    @include('livewire.outlet.modal-create')
-    @include('livewire.outlet.modal-update')
-    <a href="{{ route('outlet.trash') }}" class="btn btn-info"><i class="fas fa-trash"></i>&nbsp&nbspSampah</a>
-  </div>
-</div>
-  <div class="card">
-
-  <div class="card-header">
-
-    <h3 class="card-title">Daftar Outlet</h3>
-    <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-        <i class="fas fa-minus"></i>
-      </button>
-      <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-        <i class="fas fa-times"></i>
-      </button>
+    <div class="float-right">
+      @include('livewire.outlet.modal-create')
+      @include('livewire.outlet.modal-update')
+      <a href="{{ route('outlet.trash') }}" class="btn btn-info"><i class="fas fa-trash"></i>&nbsp&nbspSampah</a>
     </div>
   </div>
-  <div class="card-body p-0  overflow-auto">
-      {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
+  <div class="card">
+
+    <div class="card-header">
+
+      <h3 class="card-title">Daftar Outlet</h3>
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="card-body p-0  overflow-auto">
 
       <table class="table table-striped table-bordered" >
           <thead>
@@ -62,6 +61,6 @@
       {{ $outlets->links()}}
   </div>
 
-</div>
+  </div>
 
 </div>

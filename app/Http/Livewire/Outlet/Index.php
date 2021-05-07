@@ -16,7 +16,7 @@ class Index extends Component
     protected $rules = [
       'name' => ['required', 'max:100'],
       'address' => ['required','string'],
-      'tlp' => ['required','integer','max:15'],
+      'tlp' => ['required','numeric','digits_between:11,15'],
     ];
 
     public function render()
@@ -66,10 +66,12 @@ class Index extends Component
       $this->emit('updated'); // Close Modal with jquery, look at views/layouts/admin/master.blade.php
       return $this->dispatchBrowserEvent('success',['text' => 'Data Outlet berhasil diubah']);
     }
+
     private function resetInput()
     {
       $this->name = null;
       $this->address = null;
       $this->tlp = null;
+      $this->outletId = null;
     }
 }
